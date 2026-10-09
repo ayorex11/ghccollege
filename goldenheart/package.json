@@ -1,0 +1,19 @@
+{
+  "name": "goldenheart-college",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/sitemap": "^5.3.5",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "lucide-vue-next": "^1.0.0",
+    "nuxt": "^3.13.2",
+    "vue": "^3.5.0"
+  }
+}
