@@ -16,7 +16,8 @@
         <label v-if="f.type !== 'bool'" :for="f.key">{{ f.label }}<span v-if="f.required" class="text-error"> *</span></label>
         <label v-else class="flex items-center gap-2"><input v-model="edit[f.key]" type="checkbox" class="h-4 w-4 accent-[#8B1A1A]" :disabled="f.readonly" /> {{ f.label }}</label>
 
-        <textarea v-if="f.type === 'textarea'" :id="f.key" v-model="edit[f.key]" rows="6" class="input mt-1 font-normal" :disabled="f.readonly" :required="f.required" />
+        <RichEditor v-if="f.type === 'rich'" v-model="edit[f.key]" />
+        <textarea v-else-if="f.type === 'textarea'" :id="f.key" v-model="edit[f.key]" rows="6" class="input mt-1 font-normal" :disabled="f.readonly" :required="f.required" />
         <select v-else-if="f.type === 'select'" :id="f.key" v-model="edit[f.key]" class="input mt-1 font-normal" :required="f.required">
           <option value="" disabled>Choose…</option>
           <template v-if="f.from"><option v-for="o in lookups[f.key] || []" :key="o.value" :value="o.value">{{ o.label }}</option></template>
@@ -59,6 +60,7 @@
 </template>
 
 <script setup lang="ts">
+import DOMPurify from 'dompurify'
 import type { Resource } from '~/data/adminResources'
 const props = defineProps<{ res: Resource }>()
 const sb = useNuxtApp().$supabase
@@ -106,6 +108,7 @@ async function save() {
     if (f.readonly) continue
     let v = edit.value[f.key]
     if (f.slugFrom && !v) v = slugify(edit.value[f.slugFrom] || '')
+    if (f.type === 'rich' && v) v = DOMPurify.sanitize(v)
     if (v === '' && f.type !== 'text' && f.type !== 'textarea') v = null
     if (f.type === 'number' && v !== null) v = Number(v)
     row[f.key] = v
@@ -126,11 +129,8 @@ async function upload(e: Event, key: string) {
   const file = (e.target as HTMLInputElement).files?.[0]
   if (!file) return
   uploading.value = key
-  const path = `${props.res.table}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`
-  const { error } = await sb.storage.from('images').upload(path, file)
+  try { edit.value[key] = await uploadImage(props.res.table, file) } catch (err: any) { flash(err.message, false) }
   uploading.value = ''
-  if (error) return flash(error.message, false)
-  edit.value[key] = sb.storage.from('images').getPublicUrl(path).data.publicUrl
 }
 function exportCsv() {
   const cols = props.res.columns

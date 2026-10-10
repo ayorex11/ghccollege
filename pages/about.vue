@@ -24,8 +24,9 @@
 
     <div class="wrap"><StarDivider /></div>
 
-    <section id="principal" class="wrap section grid gap-8 lg:grid-cols-[320px_1fr]">
-      <ImagePlaceholder label="Principal (photo to upload)" ratio="aspect-[4/5]" />
+    <section v-if="principal.message.length" id="principal" class="wrap section grid gap-8 lg:grid-cols-[320px_1fr]">
+      <img v-if="principal.photo" :src="principal.photo" :alt="principal.name" class="aspect-[4/5] w-full rounded-card object-cover" />
+      <ImagePlaceholder v-else label="Principal (photo to upload)" ratio="aspect-[4/5]" />
       <div>
         <h2 class="h-section">Principal’s message</h2>
         <div class="prose-gh mt-4 font-serif text-[17px]"><p v-for="(p, i) in principal.message" :key="i">{{ p }}</p></div>
@@ -45,7 +46,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { settings, history, vision, mission, values, principal, leadership, board } from '~/data/site'
+import { settings, history, vision, mission, values, leadership, board } from '~/data/site'
+const { principal } = await useBlockContent()
 useSeo('About', 'The story, vision, mission and leadership of Goldenheart College, Abeokuta.')
 const initials = (n: string) => n.replace(/^(Mr|Mrs|Dr|Chief)\.?\s/i, '').split(' ').map(w => w[0]).slice(0, 2).join('')
 </script>

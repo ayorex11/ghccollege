@@ -14,15 +14,18 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
+  BlockEditor: typeof import("../../components/BlockEditor.vue")['default']
   BottomNav: typeof import("../../components/BottomNav.vue")['default']
   BroadcastSignup: typeof import("../../components/BroadcastSignup.vue")['default']
   EventRow: typeof import("../../components/EventRow.vue")['default']
+  FieldInputs: typeof import("../../components/FieldInputs.vue")['default']
   Icon: typeof import("../../components/Icon.vue")['default']
   ImagePlaceholder: typeof import("../../components/ImagePlaceholder.vue")['default']
   PageHero: typeof import("../../components/PageHero.vue")['default']
   PostCard: typeof import("../../components/PostCard.vue")['default']
   Quote: typeof import("../../components/Quote.vue")['default']
   ResourceManager: typeof import("../../components/ResourceManager.vue")['default']
+  RichEditor: typeof import("../../components/RichEditor.vue")['default']
   SectionTitle: typeof import("../../components/SectionTitle.vue")['default']
   SiteFooter: typeof import("../../components/SiteFooter.vue")['default']
   SiteHeader: typeof import("../../components/SiteHeader.vue")['default']
@@ -51,15 +54,18 @@ interface _GlobalComponents {
   Html: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Html']
   Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+  LazyBlockEditor: LazyComponent<typeof import("../../components/BlockEditor.vue")['default']>
   LazyBottomNav: LazyComponent<typeof import("../../components/BottomNav.vue")['default']>
   LazyBroadcastSignup: LazyComponent<typeof import("../../components/BroadcastSignup.vue")['default']>
   LazyEventRow: LazyComponent<typeof import("../../components/EventRow.vue")['default']>
+  LazyFieldInputs: LazyComponent<typeof import("../../components/FieldInputs.vue")['default']>
   LazyIcon: LazyComponent<typeof import("../../components/Icon.vue")['default']>
   LazyImagePlaceholder: LazyComponent<typeof import("../../components/ImagePlaceholder.vue")['default']>
   LazyPageHero: LazyComponent<typeof import("../../components/PageHero.vue")['default']>
   LazyPostCard: LazyComponent<typeof import("../../components/PostCard.vue")['default']>
   LazyQuote: LazyComponent<typeof import("../../components/Quote.vue")['default']>
   LazyResourceManager: LazyComponent<typeof import("../../components/ResourceManager.vue")['default']>
+  LazyRichEditor: LazyComponent<typeof import("../../components/RichEditor.vue")['default']>
   LazySectionTitle: LazyComponent<typeof import("../../components/SectionTitle.vue")['default']>
   LazySiteFooter: LazyComponent<typeof import("../../components/SiteFooter.vue")['default']>
   LazySiteHeader: LazyComponent<typeof import("../../components/SiteHeader.vue")['default']>

@@ -5,15 +5,18 @@
     <section class="wrap section">
       <SectionTitle title="Facilities" />
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div v-for="f in facilities" :key="f.title" class="card p-5">
-          <Icon :name="f.icon" class="text-maroon" size="2em" />
-          <h3 class="mt-3 text-xl font-semibold">{{ f.title }}</h3><p class="mt-1 text-sm">{{ f.text }}</p>
+        <div v-for="f in facilities" :key="f.title" class="card overflow-hidden">
+          <img v-if="f.photo" :src="f.photo" :alt="f.title" class="aspect-[16/10] w-full object-cover" loading="lazy" />
+          <div class="p-5">
+            <Icon v-if="!f.photo" :name="f.icon || 'home'" class="text-3xl text-maroon" />
+            <h3 class="mt-3 text-xl font-semibold">{{ f.title }}</h3><p class="mt-1 text-sm">{{ f.text }}</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="wrap section">
-      <SectionTitle title="A day in boarding" sub="A sample routine. The school will confirm the real timetable." />
+    <section v-if="routine.length" class="wrap section">
+      <SectionTitle title="A day in boarding" />
       <ol class="space-y-3">
         <li v-for="r in routine" :key="r.time" class="card flex gap-4 p-4">
           <p class="w-20 shrink-0 font-serif font-semibold text-maroon">{{ r.time }}</p>
@@ -22,8 +25,8 @@
       </ol>
     </section>
 
-    <section class="wrap section">
-      <SectionTitle title="Clubs and societies" sub="Sample list. The school will confirm the clubs that run." />
+    <section v-if="clubs.length" class="wrap section">
+      <SectionTitle title="Clubs and societies" />
       <div class="flex flex-wrap gap-2 mb-4">
         <button v-for="c in cats" :key="c" class="btn !py-1.5 !px-3" :class="cat === c ? 'bg-maroon text-white' : 'border border-line bg-white text-ink'" @click="cat = c">{{ c }}</button>
       </div>
@@ -46,9 +49,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { settings, facilities, routine, clubs, wa } from '~/data/site'
+import { settings, wa } from '~/data/site'
+const { facilities, routine, clubs } = await useBlockContent()
 useSeo('School life', 'Boarding life, facilities, clubs and daily routine at Goldenheart College.')
-const cats = ['All', ...new Set(clubs.map(c => c.category))]
+const cats = ['All', ...new Set(clubs.map((c: any) => c.category).filter(Boolean))]
 const cat = ref('All')
-const shown = computed(() => clubs.filter(c => cat.value === 'All' || c.category === cat.value))
+const shown = computed(() => clubs.filter((c: any) => cat.value === 'All' || c.category === cat.value))
 </script>

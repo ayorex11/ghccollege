@@ -24,8 +24,9 @@
       </div>
     </section>
 
-    <section class="wrap section grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
-      <ImagePlaceholder label="Principal (photo to upload)" ratio="aspect-[4/5]" class="max-w-xs" />
+    <section v-if="principal.excerpt" class="wrap section grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
+      <img v-if="principal.photo" :src="principal.photo" :alt="principal.name" class="aspect-[4/5] w-full max-w-xs rounded-card object-cover" />
+      <ImagePlaceholder v-else label="Principal (photo to upload)" ratio="aspect-[4/5]" class="max-w-xs" />
       <div>
         <h2 class="h-section">A word from the Principal</h2>
         <blockquote class="mt-4 font-serif italic text-xl leading-8 text-ink">“{{ principal.excerpt }}”</blockquote>
@@ -62,7 +63,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { settings, stats, principal, values, wa } from '~/data/site'
+import { settings, stats, values, wa } from '~/data/site'
+const { principal } = await useBlockContent()
 const { data: allEvents } = await useEvents()
 const { data: posts } = await usePosts()
 const { data: testimonials } = await useTestimonials()

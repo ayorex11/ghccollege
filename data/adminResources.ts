@@ -1,6 +1,6 @@
 export type Field = {
   key: string; label: string
-  type: 'text' | 'textarea' | 'date' | 'number' | 'bool' | 'select' | 'image'
+  type: 'text' | 'textarea' | 'rich' | 'date' | 'number' | 'bool' | 'select' | 'image'
   options?: string[]; from?: { table: string; value: string; label: string }
   required?: boolean; readonly?: boolean; help?: string; slugFrom?: string
 }
@@ -35,7 +35,7 @@ export const resources: Resource[] = [
     { key: 'slug', label: 'Web address name', type: 'text', slugFrom: 'title' },
     { key: 'category', label: 'Category', type: 'select', options: cats },
     { key: 'excerpt', label: 'Short summary', type: 'textarea' },
-    { key: 'body', label: 'Article', type: 'textarea', help: 'Leave a blank line between paragraphs.' },
+    { key: 'body', label: 'Article', type: 'rich' },
     { key: 'cover_url', label: 'Cover image', type: 'image' },
     { key: 'published', label: 'Publish now', type: 'bool' },
   ] },

@@ -80,6 +80,7 @@ declare global {
   const refreshNuxtData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').refreshNuxtData
   const reloadNuxtApp: typeof import('../../node_modules/nuxt/dist/app/composables/chunk').reloadNuxtApp
   const requestIdleCallback: typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback').requestIdleCallback
+  const resizeImage: typeof import('../../composables/useImage').resizeImage
   const resolveComponent: typeof import('vue').resolveComponent
   const setInterval: typeof import('../../node_modules/nuxt/dist/app/compat/interval').setInterval
   const setPageLayout: typeof import('../../node_modules/nuxt/dist/app/composables/router').setPageLayout
@@ -97,9 +98,12 @@ declare global {
   const unref: typeof import('vue').unref
   const updateAppConfig: typeof import('../../node_modules/nuxt/dist/app/config').updateAppConfig
   const updateSiteConfig: typeof import('../../node_modules/nuxt-site-config/dist/runtime/nuxt/composables/updateSiteConfig').updateSiteConfig
+  const uploadImage: typeof import('../../composables/useImage').uploadImage
   const useAppConfig: typeof import('../../node_modules/nuxt/dist/app/config').useAppConfig
   const useAsyncData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').useAsyncData
   const useAttrs: typeof import('vue').useAttrs
+  const useBlockContent: typeof import('../../composables/useContent').useBlockContent
+  const useBlocks: typeof import('../../composables/useContent').useBlocks
   const useCookie: typeof import('../../node_modules/nuxt/dist/app/composables/cookie').useCookie
   const useCssModule: typeof import('vue').useCssModule
   const useCssVars: typeof import('vue').useCssVars
@@ -293,6 +297,7 @@ declare module 'vue' {
     readonly refreshNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['refreshNuxtData']>
     readonly reloadNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/chunk')['reloadNuxtApp']>
     readonly requestIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['requestIdleCallback']>
+    readonly resizeImage: UnwrapRef<typeof import('../../composables/useImage')['resizeImage']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly setInterval: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/interval')['setInterval']>
     readonly setPageLayout: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['setPageLayout']>
@@ -310,9 +315,12 @@ declare module 'vue' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly updateAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/config')['updateAppConfig']>
     readonly updateSiteConfig: UnwrapRef<typeof import('../../node_modules/nuxt-site-config/dist/runtime/nuxt/composables/updateSiteConfig')['updateSiteConfig']>
+    readonly uploadImage: UnwrapRef<typeof import('../../composables/useImage')['uploadImage']>
     readonly useAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/config')['useAppConfig']>
     readonly useAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useAsyncData']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useBlockContent: UnwrapRef<typeof import('../../composables/useContent')['useBlockContent']>
+    readonly useBlocks: UnwrapRef<typeof import('../../composables/useContent')['useBlocks']>
     readonly useCookie: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/cookie')['useCookie']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>

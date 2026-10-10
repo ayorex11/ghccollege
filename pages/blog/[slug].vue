@@ -3,7 +3,7 @@
     <PageHero :title="p.title" :intro="`${fmt(p.date)}, ${p.category}`" />
     <div class="wrap section max-w-3xl">
       <img v-if="p.cover" :src="p.cover" :alt="p.title" class="mb-6 w-full rounded-card" />
-      <div class="prose-gh text-[17px] leading-[28px]"><p v-for="(para, i) in p.body" :key="i">{{ para }}</p></div>
+      <div class="rich" v-html="p.html" />
       <div class="mt-8 flex flex-wrap gap-3">
         <a :href="`https://wa.me/?text=${encodeURIComponent(p.title + ' ' + url)}`" target="_blank" rel="noopener" class="btn-wa"><Icon name="share" /> Share on WhatsApp</a>
         <NuxtLink to="/blog" class="btn-outline">Back to news</NuxtLink>

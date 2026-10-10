@@ -25,3 +25,14 @@
   .input { @apply w-full rounded border border-[#D8CFC4] bg-white px-3 py-2.5 text-sm focus:border-maroon focus:ring-1 focus:ring-maroon focus:outline-none; }
   .prose-gh p { @apply mb-4 leading-7; }
 }
+
+@layer components {
+  .rich p { @apply mb-4; }
+  .rich h2 { @apply mb-3 mt-8 font-serif text-2xl font-semibold text-ink; }
+  .rich h3 { @apply mb-2 mt-6 font-serif text-xl font-semibold text-ink; }
+  .rich ul { @apply mb-4 list-disc pl-6; }
+  .rich ol { @apply mb-4 list-decimal pl-6; }
+  .rich a { @apply text-maroon underline; }
+  .rich img { @apply my-6 h-auto max-w-full rounded-card; }
+  .rich blockquote { @apply my-4 border-l-4 border-gold pl-4 italic; }
+}

@@ -2507,22 +2507,7 @@ _4V10wv9zP2BmrIOtMhWFU8VEWGtkMAhcceVvyJM6RVU,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"274d9-zuEyj4XF3jLDe8mla0chP03e9XI\"",
-    "mtime": "2026-10-09T23:14:20.056Z",
-    "size": 160985,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"9f605-Tvi1QYxDYcDMGFaOGtphDY6LeVg\"",
-    "mtime": "2026-10-09T23:14:20.056Z",
-    "size": 652805,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -4548,6 +4533,9 @@ const sources$1 = [
             },
             {
                 "loc": "/admin/settings"
+            },
+            {
+                "loc": "/admin/photos-upload"
             }
         ],
         "sourceType": "app"

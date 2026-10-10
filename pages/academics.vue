@@ -11,8 +11,8 @@
       </div>
     </section>
 
-    <section class="wrap section">
-      <SectionTitle title="Subjects offered" sub="Sample list. The school will confirm the final subjects." />
+    <section v-if="subjects.jss.length || subjects.sss.length" class="wrap section">
+      <SectionTitle title="Subjects offered" />
       <div class="flex gap-2 mb-4">
         <button v-for="l in levels" :key="l.key" class="btn !py-2" :class="tab === l.key ? 'bg-maroon text-white' : 'border border-line bg-white text-ink'" @click="tab = l.key">{{ l.key.toUpperCase() }}</button>
       </div>
@@ -44,7 +44,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { settings, levels, subjects, wa } from '~/data/site'
+import { settings, levels, wa } from '~/data/site'
+const { subjects } = await useBlockContent()
 const { data: termDates } = await useTerms()
 useSeo('Academics', 'Subjects, curriculum and the academic calendar at Goldenheart College. WAEC and NECO preparation.')
 const tab = ref('jss')
