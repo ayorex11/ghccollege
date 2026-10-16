@@ -12,7 +12,7 @@
 </template>
 <script setup lang="ts">
 const { data: events } = await useEvents()
-useSeo('Events', 'Upcoming events and term dates at Goldenheart College.')
+useSeo('Events', 'Upcoming events, term dates and school activities at Goldenheart College, a Christian full boarding school in Abeokuta, Ogun State.')
 const byMonth = computed(() => {
   const out: Record<string, typeof events.value> = {}
   for (const e of [...events.value].sort((a, b) => a.date.localeCompare(b.date))) {

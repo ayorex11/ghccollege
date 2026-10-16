@@ -47,7 +47,7 @@
 </template>
 <script setup lang="ts">
 import { wa } from '~/data/site'
-useSeo('WAEC results', 'WASSCE results of Goldenheart College candidates, with grade counts by year and subject.')
+useSeo('WAEC results', 'WASSCE results of Goldenheart College candidates, with grade counts by year and subject. No names or exam numbers are shown.')
 const { data: rows } = await useWaec()
 const stats = computed(() => waecStats(rows.value))
 const summary = computed(() => {

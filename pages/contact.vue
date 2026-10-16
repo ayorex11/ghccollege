@@ -28,7 +28,8 @@
 </template>
 <script setup lang="ts">
 import { settings, wa } from '~/data/site'
-useSeo('Contact', 'Address, phone, WhatsApp and directions for Goldenheart College, Abeokuta.')
+useSeo('Contact', 'Address, phone numbers, WhatsApp and directions for Goldenheart College, Moloko-Asipa Village, off Sagamu-Abeokuta Expressway, Abeokuta, Ogun State.')
+useSchoolSchema()
 const f = reactive({ name: '', contact: '', message: '' })
 const busy = ref(false), done = ref(false), err = ref('')
 async function send() {

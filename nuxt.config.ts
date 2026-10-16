@@ -10,8 +10,8 @@ export default defineNuxtConfig({
     display: 'swap',
   },
   routeRules: { '/admin/**': { ssr: false } },
-  sitemap: { exclude: ['/admin/**'] },
-  site: { url: 'https://goldenheartcollege.sch.ng', name: 'Goldenheart College' },
+  sitemap: { exclude: ['/admin/**'], sources: ['/api/__sitemap__/urls'] },
+  site: { url: process.env.NUXT_SITE_URL || 'https://www.goldenheart.com.ng', name: 'Goldenheart College' },
   runtimeConfig: {
     public: {
       supabaseUrl: process.env.SUPABASE_URL || '',

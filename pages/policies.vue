@@ -12,5 +12,5 @@
 </template>
 <script setup lang="ts">
 const { policies } = await useBlockContent()
-useSeo('Policies and safeguarding', 'School rules, boarding guidelines and safeguarding at Goldenheart College.')
+useSeo('Policies and safeguarding', 'School rules, boarding guidelines and safeguarding at Goldenheart College, a Christian co-educational full boarding school in Abeokuta.')
 </script>

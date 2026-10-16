@@ -48,7 +48,7 @@
 import { settings, levels, wa } from '~/data/site'
 const { subjects } = await useBlockContent()
 const { data: termDates } = await useTerms()
-useSeo('Academics', 'Subjects, curriculum and the academic calendar at Goldenheart College. WAEC and NECO preparation.')
+useSeo('Academics', 'Subjects, curriculum and academic calendar at Goldenheart College, Abeokuta. A Nigerian and British blend curriculum with WAEC and NECO preparation.')
 const tab = ref('jss')
 const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
 </script>

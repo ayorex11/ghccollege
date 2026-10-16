@@ -65,6 +65,6 @@
 <script setup lang="ts">
 import { settings, values, leadership, board } from '~/data/site'
 const { principal, about, symbols } = await useBlockContent()
-useSeo('About', 'The story, vision, mission and leadership of Goldenheart College, Abeokuta.')
+useSeo('About', 'The story, vision, mission, anthem and leadership of Goldenheart College, a Christian co-educational full boarding school in Abeokuta, Ogun State.')
 const initials = (n: string) => n.replace(/^(Mr|Mrs|Dr|Chief)\.?\s/i, '').split(' ').map(w => w[0]).slice(0, 2).join('')
 </script>

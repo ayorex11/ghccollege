@@ -15,7 +15,7 @@
 </template>
 <script setup lang="ts">
 const { data: posts } = await usePosts()
-useSeo('News', 'News, announcements and achievements from Goldenheart College.')
+useSeo('News', 'News, announcements and achievements from Goldenheart College, a Christian co-educational full boarding school near Abeokuta, Ogun State.')
 const q = ref(''), cat = ref('All')
 const cats = ['All', ...new Set(posts.value.map(p => p.category))]
 const shown = computed(() => posts.value.filter(p => (cat.value === 'All' || p.category === cat.value) && (p.title + p.excerpt).toLowerCase().includes(q.value.toLowerCase())))

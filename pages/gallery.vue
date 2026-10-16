@@ -35,7 +35,7 @@
 </template>
 <script setup lang="ts">
 import { albums as fallbackAlbums, settings } from '~/data/site'
-useSeo('Gallery', 'Photos and videos from Goldenheart College.')
+useSeo('Gallery', 'Photos and videos from campus life, classrooms, laboratories and events at Goldenheart College, Moloko-Asipa, Abeokuta.')
 const { data: albums } = await useGallery()
 const { data: videos } = await useVideos()
 </script>

@@ -83,5 +83,6 @@ const events = computed(() => {
   const up = allEvents.value.filter(e => e.date >= t)
   return up.length ? up : allEvents.value.slice(-4)
 })
-useSeo('Home', 'Goldenheart College is a co-educational Christian full boarding school near Abeokuta, Ogun State, for ages 10 to 16.')
+useSeo('Home', 'Goldenheart College is a Christian co-educational full boarding school in Moloko-Asipa, near Abeokuta, Ogun State, for ages 10 to 16.')
+useSchoolSchema()
 </script>

@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import { settings, wa } from '~/data/site'
 const { facilities, routine, clubs } = await useBlockContent()
-useSeo('School life', 'Boarding life, facilities, clubs and daily routine at Goldenheart College.')
+useSeo('School life', 'Boarding life, hostels, laboratories, library, clubs and daily routine at Goldenheart College, a co-educational full boarding school in Ogun State.')
 const cats = ['All', ...new Set(clubs.map((c: any) => c.category).filter(Boolean))]
 const cat = ref('All')
 const shown = computed(() => clubs.filter((c: any) => cat.value === 'All' || c.category === cat.value))

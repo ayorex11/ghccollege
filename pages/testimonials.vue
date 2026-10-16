@@ -6,5 +6,5 @@
 </template>
 <script setup lang="ts">
 const { data: testimonials } = await useTestimonials()
-useSeo('Parent voices', 'Testimonials from parents of Goldenheart College students.')
+useSeo('Parent voices', 'What parents say about Goldenheart College, a Christian co-educational full boarding school in Abeokuta, Ogun State.')
 </script>

@@ -15,7 +15,7 @@
 const { data: posts } = await usePosts()
 const p = posts.value.find(x => x.slug === useRoute().params.slug)
 if (!p) throw createError({ statusCode: 404, statusMessage: 'Article not found' })
-useSeo(p.title, p.excerpt)
+useSeo(p.title, p.excerpt, p.cover || undefined)
 const url = useRequestURL().href
 const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 </script>
