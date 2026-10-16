@@ -35,6 +35,7 @@
     </section>
 
     <section class="wrap section">
+      <NuxtLink to="/results" class="card card-hover mb-6 block p-5"><p class="font-serif text-xl font-semibold text-maroon">See our WAEC results</p><p class="mt-1 text-sm">Grades by year and subject, 2024 to 2026.</p></NuxtLink>
       <div class="rounded-card bg-maroon p-8 text-center text-white">
         <h2 class="!text-white text-3xl font-semibold">Questions about the curriculum?</h2>
         <p class="mt-2 text-white/85">Speak to the school directly.</p>

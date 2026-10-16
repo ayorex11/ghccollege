@@ -5,6 +5,18 @@ export type BField = { key: string; label: string; type: 'text' | 'textarea' | '
 export type Block = { slug: string; key: string; label: string; kind: 'object' | 'list'; hint?: string; itemName?: string; fields: BField[]; defaults: any }
 
 export const blocks: Block[] = [
+  { slug: 'about', key: 'about', label: 'About the school', kind: 'object', hint: 'The welcome, story, vision and mission on the About page.', fields: [
+    { key: 'welcome', label: 'Welcome text', type: 'textarea', help: 'Leave a blank line between paragraphs.' },
+    { key: 'story', label: 'Our story', type: 'textarea', help: 'Leave a blank line between paragraphs.' },
+    { key: 'vision', label: 'Vision', type: 'textarea' },
+    { key: 'mission', label: 'Mission', type: 'textarea' },
+  ], defaults: { welcome: site.welcome.join('\n\n'), story: site.history.join('\n\n'), vision: site.vision, mission: site.mission } },
+
+  { slug: 'anthem', key: 'anthem', label: 'Anthem and creed', kind: 'object', hint: 'Shown on the About page.', fields: [
+    { key: 'anthem', label: 'School anthem', type: 'lines', help: 'One line of the anthem per row.' },
+    { key: 'creed', label: 'School creed', type: 'lines', help: 'One line of the creed per row.' },
+  ], defaults: { anthem: site.anthem, creed: site.creed } },
+
   { slug: 'principal', key: 'principal', label: 'Principal’s message', kind: 'object', hint: 'Shown on the Home page (short quote) and the About page (full message).', fields: [
     { key: 'name', label: 'Name', type: 'text' },
     { key: 'title', label: 'Title', type: 'text' },

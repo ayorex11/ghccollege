@@ -1,4 +1,5 @@
 import * as site from '~/data/site'
+import { waecFallback } from '~/data/waecResults'
 
 // Shows database content when there is some; otherwise the placeholder from data/site.ts.
 // Before launch, set USE_PLACEHOLDERS to false so empty sections stay empty.
@@ -63,5 +64,42 @@ export async function useBlockContent() {
   const facilities: any[] = b.facilities ?? site.facilities
   const routine: any[] = b.routine ?? sample(site.routine as any[], [])
   const policies = (b.policies ?? sample(site.policies as any[], [])).map((p: any) => ({ id: (p.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-'), title: p.title, items: p.items || [] }))
-  return { principal, subjects, clubs, facilities, routine, policies }
+  const ab = b.about
+  const about = {
+    welcome: ab?.welcome ? paragraphs(ab.welcome) : site.welcome,
+    story: ab?.story ? paragraphs(ab.story) : site.history,
+    vision: ab?.vision || site.vision,
+    mission: ab?.mission || site.mission,
+  }
+  const symbols = { anthem: b.anthem?.anthem ?? site.anthem, creed: b.anthem?.creed ?? site.creed }
+  return { principal, subjects, clubs, facilities, routine, policies, about, symbols }
+}
+
+// WAEC results: anonymous rows (year + "Subject Grade" lines). Database rows win; otherwise the real data in data/waecResults.ts.
+export const useWaec = () => useAsyncData('waec', async () => {
+  const rows = await dbRest('waec_results', 'select=year,grades&order=year.desc')
+  return rows && rows.length ? rows.map(r => ({ year: Number(r.year), grades: String(r.grades) })) : waecFallback
+}, { default: () => waecFallback })
+
+export const GRADES = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9']
+const CREDITS = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6']
+function parseGrades(text: string) {
+  return text.split('\n').map(l => l.trim().match(/^(.*?)[\s,:\-–]+([A-F][1-9])$/i)).filter(Boolean).map(m => ({ subject: m![1].trim(), grade: m![2].toUpperCase() }))
+}
+export function waecStats(rows: { year: number; grades: string }[]) {
+  const isEn = (s: string) => /^english language$/i.test(s), isMa = (s: string) => /^general mathematics$/i.test(s)
+  const make = (list: { year: number; grades: string }[]) => {
+    const cands = list.map(r => parseGrades(r.grades))
+    const entries = cands.flat()
+    const dist = Object.fromEntries(GRADES.map(g => [g, entries.filter(e => e.grade === g).length]))
+    const bySubject: Record<string, { n: number; credit: number }> = {}
+    for (const e of entries) { const x = (bySubject[e.subject] ||= { n: 0, credit: 0 }); x.n++; if (CREDITS.includes(e.grade)) x.credit++ }
+    return {
+      candidates: cands.length, entries: entries.length, credits: entries.filter(e => CREDITS.includes(e.grade)).length, dist,
+      enMath: cands.filter(c => c.some(e => isEn(e.subject) && CREDITS.includes(e.grade)) && c.some(e => isMa(e.subject) && CREDITS.includes(e.grade))).length,
+      subjects: Object.entries(bySubject).map(([subject, v]) => ({ subject, ...v })).sort((a, b) => b.n - a.n || a.subject.localeCompare(b.subject)),
+    }
+  }
+  const years = [...new Set(rows.map(r => r.year))].sort((a, b) => b - a)
+  return { all: make(rows), years: years.map(y => ({ year: y, ...make(rows.filter(r => r.year === y)) })) }
 }

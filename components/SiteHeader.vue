@@ -10,7 +10,7 @@
       </NuxtLink>
       <nav class="hidden lg:flex items-center gap-1" aria-label="Main">
         <NuxtLink v-for="n in nav.filter(i => i.to !== '/')" :key="n.to" :to="n.to"
-          class="rounded px-3 py-2 text-sm font-semibold text-ink-body hover:text-maroon"
+          class="rounded px-3 py-2 text-sm font-semibold text-ink-body hover:text-maroon" :class="n.to === '/results' ? 'hidden xl:block' : ''"
           active-class="!text-maroon underline decoration-gold decoration-2 underline-offset-8">{{ n.label }}</NuxtLink>
       </nav>
       <a :href="wa()" target="_blank" rel="noopener" class="btn-wa !py-2 hidden sm:inline-flex">

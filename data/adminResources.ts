@@ -61,6 +61,10 @@ export const resources: Resource[] = [
     { key: 'quote', label: 'What they said', type: 'textarea', required: true },
     { key: 'approved', label: 'Show on website', type: 'bool' },
   ] },
+  { slug: 'waec', table: 'waec_results', label: 'WAEC results', singular: 'candidate result', order: { col: 'year', asc: false }, columns: ['year', 'grades'], hint: 'One row per candidate. Do not enter names or exam numbers.', fields: [
+    { key: 'year', label: 'Exam year', type: 'number', required: true },
+    { key: 'grades', label: 'Subjects and grades', type: 'textarea', required: true, help: 'One per line, like: English Language B3. No names or exam numbers.' },
+  ] },
   { slug: 'messages', table: 'messages', label: 'Inbox', singular: 'message', canCreate: false, csv: true, order: { col: 'created_at', asc: false }, columns: ['name', 'contact', 'message', 'created_at', 'read'], fields: [
     { key: 'name', label: 'Name', type: 'text', readonly: true },
     { key: 'contact', label: 'Phone or email', type: 'text', readonly: true },

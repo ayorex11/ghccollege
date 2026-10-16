@@ -25,7 +25,7 @@ const open = ref(false)
 const links: { label: string; to?: string; heading?: boolean }[] = [
   { label: 'Dashboard', to: '/admin' }, { label: 'Site settings', to: '/admin/settings' },
   { label: 'Page content', heading: true }, ...blocks.map(b => ({ label: b.label, to: `/admin/content/${b.slug}` })),
-  { label: 'Updates', heading: true }, ...resources.filter(r => ['events', 'terms', 'posts'].includes(r.slug)).map(r => ({ label: r.label, to: `/admin/${r.slug}` })),
+  { label: 'Updates', heading: true }, ...resources.filter(r => ['events', 'terms', 'posts', 'waec'].includes(r.slug)).map(r => ({ label: r.label, to: `/admin/${r.slug}` })),
   { label: 'Gallery', heading: true }, { label: 'Upload photos', to: '/admin/photos-upload' }, ...resources.filter(r => ['albums', 'photos', 'videos'].includes(r.slug)).map(r => ({ label: r.label, to: `/admin/${r.slug}` })),
   { label: 'People', heading: true }, ...resources.filter(r => ['testimonials', 'messages', 'signups'].includes(r.slug)).map(r => ({ label: r.label, to: `/admin/${r.slug}` })),
 ]
