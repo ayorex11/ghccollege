@@ -11,6 +11,9 @@ export const settings = {
   motto: 'Knowledge, Integrity & Excellence',
   founded: 2017,
   phone: '+234 903 135 4602',
+  phone2: '+234 705 893 8843',
+  heroImage: '',
+  aboutImage: '',
   whatsapp: '2349031354602',
   email: 'goldenheartcollegeghc@gmail.com',
   addressLines: ['Moloko-Asipa Village, Obafe Road,', 'off Sagamu-Abeokuta Expressway (Km 20),', 'Abeokuta, Ogun State, Nigeria'],
@@ -39,6 +42,7 @@ export const nav = [
   { label: 'Events', to: '/events', icon: 'event' },
   { label: 'Gallery', to: '/gallery', icon: 'photo_library' },
   { label: 'News', to: '/blog', icon: 'newspaper' },
+  { label: 'Results', to: '/results', icon: 'school' },
   { label: 'Contact', to: '/contact', icon: 'call' },
 ]
 
@@ -83,9 +87,36 @@ export const board = [
   { name: 'Femi Akande', role: 'Secretary' },
 ]
 
-export const vision = 'To be the foremost academic institution where excellence is attained through knowledge, good moral and integrity.'
+export const vision = 'To be the foremost institution where knowledge, integrity and excellence are powered by the fear of God and service to humanity.'
 export const mission =
-  'To help learners imbibe knowledge, integrity and achieve excellence using their individual talents by nurturing them in the fear of God.'
+  'To mould character and learning, and to unbundle the talents and potentials of students through modern pedagogy and virtual experience.'
+
+export const welcome = [
+  'Welcome to Goldenheart College, Moloko Asipa, Ogun State. We are a full boarding school with state-of-the-art facilities, offering Science, Arts and Commercial subjects, taught by qualified and competent teachers.',
+  'Boys and girls live in separate hostels, a home away from home. Our classrooms are spacious and designed to support effective teaching and learning. We have separate, well-equipped laboratories for Biology, Chemistry and Physics, and a well-stocked library.',
+  'Our results since the school began speak for us, and our former students are doing well in many fields, including medicine, engineering, accounting, business management and information technology. Our recent WAEC results are published on this website.',
+  'Join us on the learning safari. This is a school for vibrant youths and the leaders of tomorrow. Thank you, and God bless.',
+]
+
+export const anthem = [
+  'GoldenHeart, GoldenHeart,',
+  'For you are the light of the world.',
+  'Make the fear of God thy watchword,',
+  'Integrity, my standing rock,',
+  'Knowledge with morals',
+  'Are hallmarks of excellence.',
+  'Arise and shine,',
+  'For you are the light of the world.',
+]
+
+export const creed = [
+  'At the GoldenHeart College,',
+  'We walk, we do not run,',
+  'We talk, we do not shout,',
+  'We are attentive, diligent and productive,',
+  'We always bring things we need for each day,',
+  'We strive daily to do our best.',
+]
 
 export const history = [
   'Goldenheart College (GHC) was established in 2017 as a co-educational, full boarding school near Abeokuta, Ogun State.',
@@ -101,7 +132,7 @@ export const levels = [
 // placeholder: confirm with school and edit in admin
 export const subjects = {
   jss: ['English Language', 'Mathematics', 'Basic Science', 'Basic Technology', 'Social Studies', 'Civic Education', 'Computer Studies', 'Christian Religious Studies', 'Yoruba', 'Agricultural Science', 'Business Studies', 'Physical & Health Education'],
-  sss: ['English Language', 'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Literature in English', 'Government', 'Economics', 'Commerce', 'Financial Accounting', 'Geography', 'Further Mathematics', 'Computer Studies', 'Civic Education'],
+  sss: ['English Language', 'General Mathematics', 'Civic Education', 'Digital Technologies', 'Further Mathematics', 'Biology', 'Chemistry', 'Physics', 'Economics', 'Commerce', 'Accounting', 'Marketing', 'Data Processing', 'Government', 'Literature in English', 'Christian Religious Studies', 'Yoruba', 'Geography'],
   placeholder: true,
 }
 
@@ -112,8 +143,10 @@ export const termDates = [
 ]
 
 export const facilities = [
-  { title: 'Science laboratories', text: 'Hands-on practical work in physics, chemistry and biology.', icon: 'science' },
-  { title: 'Library', text: 'A quiet space for reading, research and private study.', icon: 'menu_book' },
+  { title: 'Hostels', text: 'Separate hostels for boys and girls, a home away from home.', icon: 'hotel' },
+  { title: 'Classrooms', text: 'Spacious classrooms designed for effective teaching and learning.', icon: 'school' },
+  { title: 'Science laboratories', text: 'Separate, well-equipped laboratories for Biology, Chemistry and Physics.', icon: 'science' },
+  { title: 'Library', text: 'A well-stocked library for reading, research and private study.', icon: 'menu_book' },
   { title: 'ICT room', text: 'Computers for practical lessons and digital skills.', icon: 'laptop_mac' },
   { title: 'Sports pitch', text: 'Open ground for football, athletics and inter-class games.', icon: 'sports_soccer' },
 ]

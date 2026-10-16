@@ -9,6 +9,9 @@ export default defineNuxtPlugin(async () => {
   }
   const s = cached.value || {}
   if (s.phone) settings.phone = s.phone
+  if (s.phone2) settings.phone2 = s.phone2
+  if (s.heroImage) settings.heroImage = s.heroImage
+  if (s.aboutImage) settings.aboutImage = s.aboutImage
   if (s.whatsapp) settings.whatsapp = s.whatsapp.replace(/\D/g, '')
   if (s.email) settings.email = s.email
   if (s.address) settings.addressLines = [s.address]

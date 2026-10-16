@@ -6,7 +6,7 @@
         <a :href="wa()" target="_blank" rel="noopener" class="btn-wa w-full"><Icon name="chat" /> Chat on WhatsApp</a>
         <div class="card p-5 space-y-3">
           <p class="flex gap-3"><Icon name="location_on" class="text-maroon" /><span>{{ settings.addressLines.join(' ') }}</span></p>
-          <p class="flex gap-3"><Icon name="call" class="text-maroon" /><a :href="`tel:${settings.phone.replace(/\s/g,'')}`">{{ settings.phone }}</a></p>
+          <p class="flex gap-3"><Icon name="call" class="text-maroon" /><span class="flex flex-col"><a v-for="ph in [settings.phone, settings.phone2].filter(Boolean)" :key="ph" :href="`tel:${ph.replace(/\s/g,'')}`">{{ ph }}</a></span></p>
           <p class="flex gap-3"><Icon name="mail" class="text-maroon" /><a :href="`mailto:${settings.email}`" class="break-all">{{ settings.email }}</a></p>
         </div>
         <a :href="settings.mapsLink" target="_blank" rel="noopener" class="btn-outline w-full"><Icon name="directions" /> Get directions</a>

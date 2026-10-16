@@ -17,7 +17,7 @@
       <div class="text-sm space-y-2">
         <p class="font-semibold text-white">Contact</p>
         <p>{{ settings.addressLines.join(' ') }}</p>
-        <p><a :href="`tel:${settings.phone.replace(/\s/g,'')}`" class="hover:text-white">{{ settings.phone }}</a></p>
+        <p v-for="ph in [settings.phone, settings.phone2].filter(Boolean)" :key="ph"><a :href="`tel:${ph.replace(/\s/g,'')}`" class="hover:text-white">{{ ph }}</a></p>
         <p><a :href="`mailto:${settings.email}`" class="hover:text-white break-all">{{ settings.email }}</a></p>
         <p class="pt-2 flex gap-4">
           <a :href="settings.social.youtube" target="_blank" rel="noopener" class="hover:text-white">YouTube</a>

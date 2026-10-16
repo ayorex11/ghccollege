@@ -12,7 +12,8 @@
           </div>
           <p class="mt-6 font-serif tracking-[0.08em] text-gold-light text-sm">★ {{ settings.motto }} ★</p>
         </div>
-        <ImagePlaceholder label="Campus photo (replace in admin)" ratio="aspect-[4/3]" />
+        <img v-if="settings.heroImage" :src="settings.heroImage" alt="Goldenheart College campus" class="aspect-[4/3] w-full rounded-card object-cover" />
+        <ImagePlaceholder v-else ratio="aspect-[4/3]" />
       </div>
     </section>
 
@@ -24,9 +25,16 @@
       </div>
     </section>
 
+    <section class="wrap pt-8">
+      <NuxtLink to="/results" class="card card-hover block p-5 md:flex md:items-center md:justify-between">
+        <div><p class="font-serif text-xl font-semibold text-maroon">Our WAEC results</p><p class="mt-1 text-sm">{{ resultsLine }}</p></div>
+        <span class="mt-3 inline-block font-semibold text-maroon md:mt-0">See the results</span>
+      </NuxtLink>
+    </section>
+
     <section v-if="principal.excerpt" class="wrap section grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
       <img v-if="principal.photo" :src="principal.photo" :alt="principal.name" class="aspect-[4/5] w-full max-w-xs rounded-card object-cover" />
-      <ImagePlaceholder v-else label="Principal (photo to upload)" ratio="aspect-[4/5]" class="max-w-xs" />
+      <ImagePlaceholder v-else ratio="aspect-[4/5]" class="max-w-xs" />
       <div>
         <h2 class="h-section">A word from the Principal</h2>
         <blockquote class="mt-4 font-serif italic text-xl leading-8 text-ink">“{{ principal.excerpt }}”</blockquote>
@@ -65,6 +73,8 @@
 <script setup lang="ts">
 import { settings, stats, values, wa } from '~/data/site'
 const { principal } = await useBlockContent()
+const { data: waecRows } = await useWaec()
+const resultsLine = computed(() => { const a = waecStats(waecRows.value).all; return `${a.enMath} of ${a.candidates} candidates earned credits in both English Language and General Mathematics.` })
 const { data: allEvents } = await useEvents()
 const { data: posts } = await usePosts()
 const { data: testimonials } = await useTestimonials()

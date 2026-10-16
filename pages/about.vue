@@ -2,17 +2,23 @@
   <div>
     <PageHero title="About Goldenheart College" :intro="`Founded in ${settings.founded}. Co-educational, full boarding, Christian faith-based and open to families of all faiths.`" />
 
+    <section v-if="about.welcome.length" class="wrap section max-w-4xl">
+      <h2 class="h-section">Welcome</h2>
+      <div class="prose-gh mt-4 font-serif text-[17px]"><p v-for="(p, i) in about.welcome" :key="i">{{ p }}</p></div>
+    </section>
+
     <section class="wrap section grid gap-8 lg:grid-cols-2">
       <div>
         <h2 class="h-section">Our story</h2>
-        <div class="prose-gh mt-4"><p v-for="(p, i) in history" :key="i">{{ p }}</p></div>
+        <div class="prose-gh mt-4"><p v-for="(p, i) in about.story" :key="i">{{ p }}</p></div>
       </div>
-      <ImagePlaceholder label="Campus photo (replace in admin)" ratio="aspect-[4/3]" />
+      <img v-if="settings.aboutImage" :src="settings.aboutImage" alt="Goldenheart College campus" class="aspect-[4/3] w-full rounded-card object-cover" />
+      <ImagePlaceholder v-else ratio="aspect-[4/3]" />
     </section>
 
     <section class="wrap section grid gap-4 md:grid-cols-2">
-      <div class="card p-6 border-t-4 border-t-maroon"><h3 class="text-2xl font-semibold">Our vision</h3><p class="mt-3">{{ vision }}</p></div>
-      <div class="card p-6 border-t-4 border-t-ember"><h3 class="text-2xl font-semibold">Our mission</h3><p class="mt-3">{{ mission }}</p></div>
+      <div class="card p-6 border-t-4 border-t-maroon"><h3 class="text-2xl font-semibold">Our vision</h3><p class="mt-3">{{ about.vision }}</p></div>
+      <div class="card p-6 border-t-4 border-t-ember"><h3 class="text-2xl font-semibold">Our mission</h3><p class="mt-3">{{ about.mission }}</p></div>
     </section>
 
     <section class="wrap section">
@@ -22,11 +28,22 @@
       </div>
     </section>
 
+    <section v-if="symbols.anthem.length || symbols.creed.length" class="wrap section grid gap-4 md:grid-cols-2">
+      <div v-if="symbols.anthem.length" class="card p-6">
+        <h2 class="text-2xl font-semibold">School anthem</h2>
+        <p class="mt-4 font-serif italic leading-8 text-ink"><template v-for="(l, i) in symbols.anthem" :key="i">{{ l }}<br /></template></p>
+      </div>
+      <div v-if="symbols.creed.length" class="card p-6">
+        <h2 class="text-2xl font-semibold">School creed</h2>
+        <p class="mt-4 font-serif italic leading-8 text-ink"><template v-for="(l, i) in symbols.creed" :key="i">{{ l }}<br /></template></p>
+      </div>
+    </section>
+
     <div class="wrap"><StarDivider /></div>
 
     <section v-if="principal.message.length" id="principal" class="wrap section grid gap-8 lg:grid-cols-[320px_1fr]">
       <img v-if="principal.photo" :src="principal.photo" :alt="principal.name" class="aspect-[4/5] w-full rounded-card object-cover" />
-      <ImagePlaceholder v-else label="Principal (photo to upload)" ratio="aspect-[4/5]" />
+      <ImagePlaceholder v-else ratio="aspect-[4/5]" />
       <div>
         <h2 class="h-section">Principal’s message</h2>
         <div class="prose-gh mt-4 font-serif text-[17px]"><p v-for="(p, i) in principal.message" :key="i">{{ p }}</p></div>
@@ -46,8 +63,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { settings, history, vision, mission, values, leadership, board } from '~/data/site'
-const { principal } = await useBlockContent()
+import { settings, values, leadership, board } from '~/data/site'
+const { principal, about, symbols } = await useBlockContent()
 useSeo('About', 'The story, vision, mission and leadership of Goldenheart College, Abeokuta.')
 const initials = (n: string) => n.replace(/^(Mr|Mrs|Dr|Chief)\.?\s/i, '').split(' ').map(w => w[0]).slice(0, 2).join('')
 </script>
