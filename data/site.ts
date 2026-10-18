@@ -9,7 +9,7 @@ export const settings = {
   name: 'Goldenheart College',
   short: 'GHC',
   motto: 'Knowledge, Integrity & Excellence',
-  founded: 2017,
+  founded: 2015,
   phone: '+234 903 135 4602',
   phone2: '+234 705 893 8843',
   heroImage: '',
@@ -47,9 +47,9 @@ export const nav = [
 ]
 
 export const stats = [
-  { value: '35', label: 'Acres of campus' },
+  { value: '36', label: 'Acres of campus' },
   { value: '10–16', label: 'Age range' },
-  { value: String(settings.founded), label: 'Founded' },
+  { value: String(settings.founded), label: 'Established' },
   { value: 'Full', label: 'Boarding, co-ed' },
 ]
 
@@ -68,7 +68,7 @@ export const principal = {
     'Welcome to Goldenheart College. Here, your child will be known by name, guided with care, and challenged to grow in knowledge, integrity and excellence.',
   message: [
     'Dear parents, guardians and students,',
-    'Welcome to Goldenheart College. Since 2017, we have been a home as much as a school for boys and girls between the ages of ten and sixteen. Our campus, set on thirty-five acres of natural land in Moloko-Asipa, gives children room to learn, to play and to grow.',
+    'Welcome to Goldenheart College. Since 2016, we have been a home as much as a school for boys and girls between the ages of ten and sixteen. Our campus, set on thirty-six acres of natural land in Moloko-Asipa, gives children room to learn, to play and to grow.',
     'We are a Christian faith-based school, and we warmly welcome families of every faith who identify with our values. Our motto, Knowledge, Integrity and Excellence, is not decoration. It is what we ask of every student and every member of staff, every day.',
     'Our curriculum blends the best of the Nigerian and British approaches, preparing students for WAEC and NECO examinations and for the world beyond them. Just as important, we nurture each child in the fear of God, so that they leave us as young people of character.',
     'I invite you to explore our website, and then to speak with us. We would be glad to answer your questions.',
@@ -81,7 +81,7 @@ export const leadership = [
 ]
 
 export const board = [
-  { name: 'Dr Lawrence Akande', role: 'Chairman' },
+  { name: 'Dr Lawrence Akande', role: 'Chairman, Governing Council' },
   { name: 'Adejoke Akande', role: 'Chairperson' },
   { name: 'D.O Adaralegbe', role: 'Member' },
   { name: 'Femi Akande', role: 'Secretary' },
@@ -119,10 +119,26 @@ export const creed = [
 ]
 
 export const history = [
-  'Goldenheart College (GHC) was established in 2017 as a co-educational, full boarding school near Abeokuta, Ogun State.',
-  'Set on 35 acres of natural land in Moloko-Asipa Village, the school provides an exciting learning environment for children between the ages of 10 and 16.',
-  'Our curriculum is a blend of Nigerian and British approaches, offering a broad-based education of international standard to meet global needs.',
+  'Goldenheart College was established in 2015 and began operations in the 2016/2017 academic session. It is a full boarding, co-educational college.',
+  'The idea of building the college was conceived by the Chairman of the Governing Council, who knows the value of education from his own exposure to numerous schools.',
+  'Built on 36 acres of land in a quiet setting, away from the busy activity of the cities, Goldenheart College was conceived to give working parents the opportunity to place their children in a home-away-from-home college, so that they can focus on building their careers.',
+  'The college started with 10 students in the 2016/2017 session and has since graduated classes in the 2020/21, 2021/22, 2022/23, 2023/24 and 2024/25 sessions. With God’s support, it continues to build leaders of tomorrow with good morals and impactful knowledge.',
 ]
+
+export const scholarships = [
+  { title: 'Community scholarship', text: 'In 2016/2017, a student from the host community of Asipa-Moloko was awarded a full scholarship to the college.' },
+  { title: 'Ogun State partnership', text: 'From the 2018/2019 to the 2020/2021 sessions, in partnership with the Ogun State Ministry of Education, the college gave 28 students from Ogun State public schools full scholarships from JSS1 to JSS3, as part of its corporate social responsibility.' },
+  { title: 'Ekiti State partnership', text: 'In partnership with the Ekiti State Government, the college currently provides scholarships to 15 Ekiti indigenes. They are due to graduate in the 2026/27 session.' },
+  { title: 'Subsidised education', text: 'Through its various scholarship programmes, the college has subsidised education for its students from the beginning to date.' },
+]
+
+export const chairman = {
+  name: 'Dr Lawrence Akande',
+  title: 'Chairman, Governing Council',
+  photo: '',
+  note: 'We give glory to God Almighty, who has helped us in these achievements. It could only have been God, as we can only plant while it is God who waters.',
+  bio: 'Dr Akande is a graduate of Ahmadu Bello University (BSc Hons) and Obafemi Awolowo University (PhD), and an alumnus of Harvard Business School, Wharton Executive Education, INSEAD, Imperial College London, London Business School and Cambridge, UK, among others.',
+}
 
 export const levels = [
   { key: 'jss', name: 'Junior Secondary (JSS 1–3)', ages: 'Ages 10–13', exam: 'Junior school certificate / BECE', text: 'Builds strong foundations in English, mathematics, science and the humanities.' },

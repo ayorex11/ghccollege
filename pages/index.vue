@@ -5,7 +5,7 @@
         <div>
           <span class="chip !bg-white/10 !text-gold-light">Co-educational full boarding school, ages 10 to 16</span>
           <h1 class="mt-4 !text-white h-display">{{ settings.heroTitle }}</h1>
-          <p class="mt-4 text-white/85 text-[17px] leading-[26px]">A Christian faith-based boarding school on 35 acres near Abeokuta, open to families of all faiths. A Nigerian and British blend curriculum, with WAEC and NECO preparation.</p>
+          <p class="mt-4 text-white/85 text-[17px] leading-[26px]">A Christian faith-based boarding school on 36 acres near Abeokuta, open to families of all faiths. A Nigerian and British blend curriculum, with WAEC and NECO preparation.</p>
           <div class="mt-6 flex flex-col gap-3 sm:flex-row">
             <a :href="wa()" target="_blank" rel="noopener" class="btn-wa"><Icon name="chat" /> Enquire on WhatsApp</a>
             <NuxtLink to="/about" class="btn border-[1.5px] border-gold-light text-white hover:bg-white/10">About the school</NuxtLink>

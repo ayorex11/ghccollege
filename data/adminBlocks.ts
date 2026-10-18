@@ -12,6 +12,19 @@ export const blocks: Block[] = [
     { key: 'mission', label: 'Mission', type: 'textarea' },
   ], defaults: { welcome: site.welcome.join('\n\n'), story: site.history.join('\n\n'), vision: site.vision, mission: site.mission } },
 
+  { slug: 'scholarships', key: 'scholarships', label: 'Scholarships', kind: 'list', itemName: 'scholarship', hint: 'Shown on the About page. Do not name individual students without their written permission.', fields: [
+    { key: 'title', label: 'Heading', type: 'text' },
+    { key: 'text', label: 'Details', type: 'textarea' },
+  ], defaults: site.scholarships },
+
+  { slug: 'chairman', key: 'chairman', label: 'Chairman’s note', kind: 'object', hint: 'Shown on the About page.', fields: [
+    { key: 'name', label: 'Name', type: 'text' },
+    { key: 'title', label: 'Title', type: 'text' },
+    { key: 'photo', label: 'Photo', type: 'image' },
+    { key: 'note', label: 'Note', type: 'textarea' },
+    { key: 'bio', label: 'Short biography', type: 'textarea' },
+  ], defaults: site.chairman },
+
   { slug: 'anthem', key: 'anthem', label: 'Anthem and creed', kind: 'object', hint: 'Shown on the About page.', fields: [
     { key: 'anthem', label: 'School anthem', type: 'lines', help: 'One line of the anthem per row.' },
     { key: 'creed', label: 'School creed', type: 'lines', help: 'One line of the creed per row.' },

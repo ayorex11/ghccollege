@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHero title="School life" intro="A full boarding community on 35 acres, where students learn, play and grow together." />
+    <PageHero title="School life" intro="A full boarding community on 36 acres, where students learn, play and grow together." />
 
     <section class="wrap section">
       <SectionTitle title="Facilities" />

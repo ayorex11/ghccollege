@@ -72,7 +72,9 @@ export async function useBlockContent() {
     mission: ab?.mission || site.mission,
   }
   const symbols = { anthem: b.anthem?.anthem ?? site.anthem, creed: b.anthem?.creed ?? site.creed }
-  return { principal, subjects, clubs, facilities, routine, policies, about, symbols }
+  const scholarships: { title: string; text: string }[] = b.scholarships ?? site.scholarships
+  const chairman = { ...site.chairman, ...(b.chairman || {}) }
+  return { principal, subjects, clubs, facilities, routine, policies, about, symbols, scholarships, chairman }
 }
 
 // WAEC results: anonymous rows (year + "Subject Grade" lines). Database rows win; otherwise the real data in data/waecResults.ts.
